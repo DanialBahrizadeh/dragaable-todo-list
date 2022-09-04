@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyled } from "./components/styles/GlobalStyled";
+import {
+  FooterText,
+  HeaderImg,
+  StyledApp,
+} from "./components/styles/App.styled";
+import TodoList from "./components/TodoList";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp>
+      <GlobalStyled />
+      <HeaderImg />
+      <TodoList />
+      <FooterText>Drog and drop to reorder list</FooterText>
+    </StyledApp>
   );
-}
-
+};
 export default App;
