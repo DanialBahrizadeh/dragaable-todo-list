@@ -1,12 +1,13 @@
 import Button from "./Button";
 import { AddInput, StyledForm, AddButton } from "./styles/AddIconForm.styled";
 import { AiFillFolderAdd } from "react-icons/ai";
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { addTodoList, useGetTodoList } from "../hooks/TodoListHooks";
 import { nanoid } from "nanoid";
+import { useSessionStorage } from "../hooks/useSessionStorage";
 const AddIconForm = () => {
   const dispatch = useGetTodoList()[1];
-  const [value, setValue] = useState("");
+  const [value, setValue] = useSessionStorage("addInputValue", "");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (value) {

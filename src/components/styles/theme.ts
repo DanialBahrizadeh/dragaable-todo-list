@@ -1,7 +1,7 @@
 import { Theme } from "../../model/Theme";
 
 export const lightTheme: Theme = {
-  img: "lightImg",
+  img: "../../images/bg-desktop-light.jpg",
   backgroundColor: "hsl(0, 0%, 98%)",
   listBackgroundColor: "#fff",
   textColor: "hsl(235, 19%, 35%)",
@@ -11,7 +11,7 @@ export const lightTheme: Theme = {
 };
 
 export const DarkTheme: Theme = {
-  img: "darkImg",
+  img: "../../images/bg-desktop-dark.jpg",
   backgroundColor: "hsl(235, 21%, 11%)",
   listBackgroundColor: "hsl(235,24%,19%)",
   textColor: "hsl(234, 39%, 85%)",

@@ -1,6 +1,11 @@
 import { useGetTodoList, updateTodoList } from "../hooks/TodoListHooks";
 import { Todo } from "../model/Todo";
-import { ButtonContainer, StyledButton } from "./styles/Button.styled";
+import { CheckIcon } from "./Icons";
+import {
+  ButtonContainer,
+  IconHolder,
+  StyledButton,
+} from "./styles/Button.styled";
 
 interface ButtonProps {
   isDone: boolean;
@@ -18,6 +23,9 @@ const Button: React.FC<ButtonProps> = ({ isDone, todo }) => {
   return (
     <ButtonContainer isDone={isDone} onClick={handleClick}>
       <StyledButton isDone={isDone} onClick={handleClick}></StyledButton>
+      <IconHolder isDone={isDone}>
+        <CheckIcon />
+      </IconHolder>
     </ButtonContainer>
   );
 };

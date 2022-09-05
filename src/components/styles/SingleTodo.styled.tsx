@@ -5,8 +5,6 @@ import {
   textPadding,
 } from "./AddIconForm.styled";
 
-import type { ThemeProps } from "../../model/Theme";
-
 type StyledSingleTodoProps = {
   isDone: boolean;
 };
@@ -14,17 +12,17 @@ type StyledSingleTodoProps = {
 export const StyledSingleTodo = styled.div<StyledSingleTodoProps>`
   width: 100%;
   height: ${formHeight}px;
-  background-color: ${({ theme }: ThemeProps) => theme.listBackgroundColor};
+  background-color: var(--list-background-color);
   position: relative;
   padding-left: ${textPadding}px;
   display: flex;
   align-items: center;
-  border-bottom: ${({ theme }: ThemeProps) => theme.borderColor} 1px solid;
+  border-bottom: var(--border-color) 1px solid;
   ${({ isDone }) =>
     isDone &&
     `
     text-decoration: line-through;
-    color: rgba(202, 205, 232, 50%);
+    color: var(--light-text-color);
   `}
 
   :first-child {

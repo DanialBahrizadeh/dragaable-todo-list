@@ -1,7 +1,8 @@
 import { nanoid } from "nanoid";
-import { createContext, useReducer } from "react";
+import { createContext } from "react";
+import { useLocalStorageReducer } from "../hooks/useLocalStorageReducer";
 import type { Todo } from "../model/Todo";
-type TodoState = {
+export type TodoState = {
   todos: Todo[];
 };
 
@@ -15,11 +16,14 @@ export type ActionTodoReducer = {
   payload?: Todo[] | Todo;
 };
 
-type Reducer = (state: TodoState, action: ActionTodoReducer) => TodoState;
+export type Reducer = (
+  state: TodoState,
+  action: ActionTodoReducer
+) => TodoState;
 
 type TodoListContextType = [
   state: TodoState,
-  Reducer: React.Dispatch<ActionTodoReducer>
+  reducer: React.Dispatch<ActionTodoReducer>
 ];
 
 export const TodoListContext = createContext<TodoListContextType>(
@@ -93,7 +97,11 @@ export const TodoListContextProvider: React.FC<{
       },
     ],
   };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useLocalStorageReducer(
+    "todos",
+    reducer,
+    initialState
+  );
 
   return (
     <TodoListContext.Provider value={[state, dispatch]}>

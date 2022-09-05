@@ -1,5 +1,5 @@
 export type Theme = {
-  img: "darkImg" | "lightImg";
+  img: string;
   backgroundColor: string;
   listBackgroundColor: string;
   textColor: string;

@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 import { formHeight, textPadding } from "./AddIconForm.styled";
 
-import type { ThemeProps } from "../../model/Theme";
-
-interface StyledButtonProps {
+interface IsDoneProps {
   isDone: boolean;
 }
 
 const width = formHeight / 3;
 
-export const ButtonContainer = styled.div<StyledButtonProps>`
+export const ButtonContainer = styled.div<IsDoneProps>`
   width: ${width}px;
   height: ${width}px;
   border-radius: 100%;
@@ -41,20 +39,21 @@ export const ButtonContainer = styled.div<StyledButtonProps>`
   }
 `;
 
-export const StyledButton = styled.button<StyledButtonProps>`
+const biggerInPx = 2;
+export const StyledButton = styled.button<IsDoneProps>`
   width: ${width}px;
   height: ${width}px;
   border-radius: 100%;
-  background-color: ${({ theme }: ThemeProps) => theme.listBackgroundColor};
-  border: ${({ theme }: ThemeProps) => theme.borderColor} 1px solid;
+  background-color: var(--list-background-color);
+  border: var(--border-color) 1px solid;
   cursor: pointer;
 
   &::before {
     content: "";
     display: ${({ isDone }) => (isDone ? "block" : "none")};
     position: relative;
-    width: calc(100% + 1px);
-    height: calc(100% + 1px);
+    width: calc(100% + ${biggerInPx}px);
+    height: calc(100% + ${biggerInPx}px);
     border-radius: 100%;
     background-image: linear-gradient(
       45deg,
@@ -69,5 +68,15 @@ export const StyledButton = styled.button<StyledButtonProps>`
       hsl(270deg 88% 65%) 89%,
       hsl(280deg 87% 65%) 100%
     );
+    right: ${biggerInPx / 2}px;
+    bottom: ${biggerInPx / 2}px;
   }
+`;
+
+export const IconHolder = styled.span<IsDoneProps>`
+  display: ${({ isDone }) => (isDone ? "block" : "none")};
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 `;

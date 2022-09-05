@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import type { ThemeProps } from "../../model/Theme";
 
 export const formHeight = 65;
 
@@ -17,8 +16,8 @@ export const inputBorderReduce = 0.25;
 
 export const AddInput = styled.input`
   width: 100%;
-  height: 100%;
-  background-color: ${({ theme }: ThemeProps) => theme.listBackgroundColor};
+  height: ${formHeight}px;
+  background-color: var(--list-background-color);
   color: inherit;
   border: none;
   border-radius: ${inputBorderReduce}rem;
@@ -32,7 +31,7 @@ export const AddInput = styled.input`
   }
 
   ::placeholder {
-    color: ${({ theme }: ThemeProps) => theme.lightTextColor};
+    color: var(--light-text-color);
   }
 `;
 

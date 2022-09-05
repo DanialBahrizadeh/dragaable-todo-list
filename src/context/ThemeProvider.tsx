@@ -1,6 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import { ThemeContext } from "styled-components";
 import { DarkTheme, lightTheme } from "../components/styles/theme";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -16,7 +17,10 @@ export const IsDarkModeContext = createContext<IsDarkModeContextProps>(
 );
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useLocalStorage<boolean>(
+    "darkMode",
+    true
+  );
   return (
     <IsDarkModeContext.Provider value={[isDarkMode, setIsDarkMode]}>
       <ThemeContext.Provider value={isDarkMode ? DarkTheme : lightTheme}>

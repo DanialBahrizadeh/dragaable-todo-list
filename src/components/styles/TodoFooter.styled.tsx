@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import { inputBorderReduce } from "./AddIconForm.styled";
-import type { ThemeProps } from "../../model/Theme";
 
 export const StyledFooter = styled.footer`
   position: relative;
   bottom: 30px;
   width: 100%;
-  height: 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }: ThemeProps) => theme.listBackgroundColor};
-  color: ${({ theme }: ThemeProps) => theme.lightTextColor};
+  background-color: var(--list-background-color);
+  color: var(--light-text-color);
   border-bottom-left-radius: ${inputBorderReduce}rem;
   border-bottom-right-radius: ${inputBorderReduce}rem;
-  padding-block: 10px;
-  padding-inline: 15px;
+  /* padding-block: 10px;
+  padding-inline: 15px; */
+  padding: 1rem;
 
   span {
     font-size: 0.8rem;
@@ -29,7 +28,7 @@ export const StyledFooter = styled.footer`
     cursor: pointer;
 
     &:hover {
-      color: ${({ theme }: ThemeProps) => theme.hoverColor};
+      color: var(--hover-color);
     }
   }
 
@@ -51,7 +50,21 @@ export const FilterButtonsContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: ${({ theme }: ThemeProps) => theme.hoverColor};
+      color: var(--hover-color);
     }
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    bottom: -4rem;
+    padding: 0.9rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--list-background-color);
+    left: 50%;
+    translate: -50%;
+    border-radius: ${inputBorderReduce}rem;
+    column-gap: 1.5rem;
   }
 `;

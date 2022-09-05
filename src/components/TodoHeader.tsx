@@ -1,4 +1,4 @@
-import { useThemeContext } from "../hooks/ThemeHooks";
+import { useThemeContext } from "../hooks/useThemeHooks";
 import { MoonIcon, SunIcon } from "./Icons";
 import { Header, IconHolder, Title } from "./styles/TodoHeader.styled";
 
